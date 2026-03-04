@@ -91,7 +91,7 @@ export const QuestionForm = forwardRef(
                     if (!errors.length) {
                         setTimeout(() => {
                             // Return to questions list
-                            router.push(`/tenants/${tenant.slug}/questions`)
+                            router.push(`/tenants/${tenant.id}/questions`)
 
                         }, 1000)
                     }

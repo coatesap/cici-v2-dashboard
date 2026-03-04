@@ -53,14 +53,14 @@ const ListQuestions = ({tenant}: {tenant: Tenant}) => {
             <div className="mx-auto max-w-6xl px-4 mt-4 pb-10">
                 <ScreenHeader
                     title={`Questions for ${tenant.name}`}
-                    backLink={`/tenants/${tenant.slug}`}
+                    backLink={`/tenants/${tenant.id}`}
                     rightSlot={
                         <AnchorButton
                             type="submit"
                             intent="primary"
                             text="Add Question"
                             icon="cube-add"
-                            onClick={() => router.push(`/tenants/${tenant.slug}/questions/new`)}
+                            onClick={() => router.push(`/tenants/${tenant.id}/questions/new`)}
                         />
                     }
                 />
@@ -96,7 +96,7 @@ const ListQuestions = ({tenant}: {tenant: Tenant}) => {
                                         text="Edit"
                                         icon="edit"
                                         size={'small'}
-                                        onClick={() => router.push(`/tenants/${tenant.slug}/questions/${question.id}`)}
+                                        onClick={() => router.push(`/tenants/${tenant.id}/questions/${question.id}`)}
                                     />
                                     <Button
                                         intent="danger"

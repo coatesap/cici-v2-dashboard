@@ -65,7 +65,7 @@ const ListUsers = ({tenant}: {tenant: Tenant}) => {
             <div className="mx-auto max-w-6xl px-4 mt-4 pb-10">
 
                 <ScreenHeader
-                    backLink={`/tenants/${tenant.slug}`}
+                    backLink={`/tenants/${tenant.id}`}
                     title={`Users for ${tenant.name}`}
                     rightSlot={
                         <AnchorButton
@@ -74,7 +74,7 @@ const ListUsers = ({tenant}: {tenant: Tenant}) => {
                             text="Add User"
                             icon="cube-add"
                             className="mt-4"
-                            onClick={() => router.push(`/tenants/${tenant.slug}/users/new`)}
+                            onClick={() => router.push(`/tenants/${tenant.id}/users/new`)}
                         />
                     }
                 />

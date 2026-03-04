@@ -27,7 +27,7 @@ const NewQuestion = ({tenant}: {tenant: Tenant}) => {
 
         <div className="mx-auto max-w-6xl px-4 mt-4 pb-10">
             <ScreenHeader
-                backLink={`/tenants/${tenant.slug}/questions`}
+                backLink={`/tenants/${tenant.id}/questions`}
                 title="Add Question"
                 rightSlot={<Button
                     loading={loading}

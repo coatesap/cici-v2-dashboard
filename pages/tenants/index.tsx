@@ -140,12 +140,12 @@ const ListTenants = () => {
                                         <Button size="small"
                                                 icon="wrench"
                                                 text="Settings"
-                                                onClick={() => router.push(`/tenants/${tenant.slug}`)}
+                                                onClick={() => router.push(`/tenants/${tenant.id}`)}
                                         />
                                         <Button size="small"
                                                 icon="people"
                                                 text="Users"
-                                                onClick={() => router.push(`/tenants/${tenant.slug}/users`)}
+                                                onClick={() => router.push(`/tenants/${tenant.id}/users`)}
                                         />
                                         <a
                                             className="ml-4 text-xs flex items-center default-link"

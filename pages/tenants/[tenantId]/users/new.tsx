@@ -41,7 +41,7 @@ const NewUser = ({tenant}: {tenant: Tenant}) => {
                 if (!error) {
                     setTimeout(() => {
                         // Return to users list
-                        router.push(`/tenants/${tenant.slug}/users`)
+                        router.push(`/tenants/${tenant.id}/users`)
                     }, 1000)
                 }
             });
@@ -56,7 +56,7 @@ const NewUser = ({tenant}: {tenant: Tenant}) => {
 
             <div className="mx-auto max-w-6xl px-4 mt-4 pb-10">
                 <ScreenHeader
-                    backLink={`/tenants/${tenant.slug}/users`}
+                    backLink={`/tenants/${tenant.id}/users`}
                     title="Add User"
                     rightSlot={
                         !successMessage.length &&

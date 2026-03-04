@@ -133,7 +133,7 @@ export const TenantForm = ({tenant}: TenantFormProps) => {
                 <Button
                     icon="wrench"
                     text="Custom Questions"
-                    onClick={() => router.push(`/tenants/${tenant.slug}/questions`)}
+                    onClick={() => router.push(`/tenants/${tenant.id}/questions`)}
                 />
             </Card>
 
