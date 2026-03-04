@@ -16,8 +16,8 @@ const SwitchTenant = () => {
     const [tenants, setTenants] = useState<Tenant[]>([])
     const [errorMessage, setErrorMessage] = useState('')
 
-    const switchTenant = (tenantSlug: string) => {
-        localStorage.setItem('tenantSlug', tenantSlug);
+    const switchTenant = (tenantId: number) => {
+        localStorage.setItem('tenantId', String(tenantId));
         router.push(`/`)
     }
 
@@ -87,7 +87,7 @@ const SwitchTenant = () => {
                                     />
                                 }}
                                 onItemSelect={(tenant) => {
-                                    switchTenant(tenant.slug)
+                                    switchTenant(tenant.id)
                                 }}
                             />
                     }
