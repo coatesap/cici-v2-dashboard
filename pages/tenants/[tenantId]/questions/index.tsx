@@ -9,6 +9,7 @@ import ScreenHeader from "@/components/ScreenHeader";
 import {withAdminUser, withTenant} from "@/lib/auth";
 import {snakeToSentenceCase} from "@/lib/stringUtils";
 import {Question, Tenant} from "@/lib/types";
+import {getQuestionTypeLabel} from "@/lib/questionTypes";
 
 // Hide the blue outline when using the mouse that looks a bit weird on things like popover
 FocusStyleManager.onlyShowFocusOnTabs();
@@ -85,7 +86,7 @@ const ListQuestions = ({tenant}: {tenant: Tenant}) => {
                             <tr className="border-gray-300 border-t hover:bg-gray-100" key={i}>
                                 <td className="text-left px-3 py-2">{question.name}</td>
                                 <td className="text-left px-3 py-2 hidden md:table-cell">{question.text}</td>
-                                <td className="text-center px-3 py-2">{question.type}</td>
+                                <td className="text-center px-3 py-2">{getQuestionTypeLabel(question.type)}</td>
                                 <td className="text-center px-3 py-2 hidden md:table-cell">{question.includeInHandover
                                     ? <Icon icon="tick"/> : <Icon icon="cross" color="#AAA"/>}</td>
                                 <td className="text-center px-3 py-2 hidden md:table-cell">{snakeToSentenceCase(question.conversationStage)}</td>

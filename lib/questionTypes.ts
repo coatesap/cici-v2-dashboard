@@ -22,3 +22,7 @@ export const questionTypes: Array<{ slug: QuestionType, name: string, descriptio
         description: 'Preset options where multiple can be chosen'
     }
 ]
+
+export const getQuestionTypeLabel = (questionType: QuestionType) => {
+    return Object.values(questionTypes).find((question) => question.slug === questionType)?.name ?? 'Unknown';
+}
