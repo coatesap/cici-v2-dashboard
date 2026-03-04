@@ -6,7 +6,7 @@ import Head from "next/head";
 import {debounce} from "@/lib/debounce";
 import {ErrorBlock} from "@/lib/cms/error-block";
 import ScreenHeader from "@/components/ScreenHeader";
-import {getBotUrl} from "@/lib/shortLinks";
+import {getBotUrl} from "@/lib/botUrls";
 import {withAdminUser} from "@/lib/auth";
 
 // Hide the blue outline when using the mouse that looks a bit weird on things like popover

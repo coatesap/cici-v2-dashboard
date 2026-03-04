@@ -1,7 +1,7 @@
 import {Button, Card, Checkbox, FormGroup, Icon, InputGroup, Label, TextArea} from "@blueprintjs/core";
 import React, {useRef, useState} from "react";
 import {toLowerCamelCase} from "@/lib/stringUtils";
-import {getBotShortUrl} from "@/lib/shortLinks";
+import {getBotShortUrl} from "@/lib/botUrls";
 import {useRouter} from "next/router";
 import {Tenant} from "@/lib/types";
 import Link from "next/link";

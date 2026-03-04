@@ -4,6 +4,7 @@ import MarkdownIt from 'markdown-it';
 import Header from "@/components/Header";
 import {withTenant} from "@/lib/auth";
 import {Tenant} from "@/lib/types";
+import {getBotApiUrl} from "@/lib/botUrls";
 
 interface FrontMatter {
     nation: string;
@@ -58,7 +59,7 @@ function formatAge(age: string): string {
 }
 
 async function fetchDocuments(): Promise<Document[]> {
-    const url = 'https://bot.cicichat.co.uk/api/v1/bots/cici/media/high-risk-safeguarding-responses.md';
+    const url = getBotApiUrl() + '/high-risk-safeguarding-responses';
 
     const response = await fetch(url);
     const markdownContent = await response.text();

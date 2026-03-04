@@ -5,7 +5,7 @@ import {ReactNode, useState} from "react";
 import {isMultiTenantUser, isUserAdmin} from "@/lib/auth0";
 import {useRouter} from "next/router";
 import {useUser} from "@auth0/nextjs-auth0/client";
-import {getBotUrl} from "@/lib/shortLinks";
+import {getBotUrl} from "@/lib/botUrls";
 import {Tenant} from "@/lib/types";
 
 interface HeaderProps {
