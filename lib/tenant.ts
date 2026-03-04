@@ -28,8 +28,12 @@ export const createTenantValidator = ({existingShortSlugs}) => ({
         }
     },
     shortSlug: (v: unknown) => {
+        if (v === null) {
+            // Don't worry about empty short slugs - they're optional
+            return;
+        }
         if (typeof v !== 'string') {
-            throw new Error(`"Slug" cannot be empty`)
+            throw new Error(`"Short Slug" must be a string`)
         }
         if (!v.match(/^[a-zA-Z0-9]+$/)) {
             throw new Error(`"Short Slug" should contain only alpha-numeric characters`)
