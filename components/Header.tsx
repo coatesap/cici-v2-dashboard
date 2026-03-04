@@ -109,12 +109,22 @@ export default function Header({children = null, tenant = null}: HeaderProps) {
                                             <>
                                                 <MenuItem
                                                     icon="comparison"
-                                                    text="Manage tenants"
+                                                    text="Tenants"
                                                     onClick={() => router.push(`/tenants`)}
                                                 />
                                                 <MenuItem
+                                                    icon="manual"
+                                                    text="Knowledge items"
+                                                    onClick={() => router.push(`/knowledge-items`)}
+                                                />
+                                                <MenuItem
+                                                    icon="media"
+                                                    text="Image items"
+                                                    onClick={() => router.push(`/image-items`)}
+                                                />
+                                                <MenuItem
                                                     icon="learning"
-                                                    text="Update course data"
+                                                    text="Course data"
                                                     onClick={() => router.push(`/course-data`)}
                                                 />
                                                 <MenuItem

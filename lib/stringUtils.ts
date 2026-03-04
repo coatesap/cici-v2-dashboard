@@ -25,6 +25,13 @@ export const snakeToSentenceCase = (str: string) => {
     return [head.charAt(0).toUpperCase() + head.slice(1), ...tail].join(' ')
 }
 
+export const toSlug = (str: string) =>
+    str
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+
 export const makeEmptyStringNull = (v: unknown) =>
     typeof v === 'string'
         ? v.trim().length
