@@ -16,9 +16,9 @@ relating to the demographics of users and what topics they are engaging with.
 ## Setup
 
 1. Clone this repository
-2. `pnpm install`
+2. `npm install`
 3. Duplicate `.env.example` as `.env.local` and fill in any missing values
-4. `pnpm dev`
+4. `npm run dev`
 
 ## Troubleshooting
 
@@ -31,7 +31,7 @@ actual port number.
 This dashboard requires access to a PostgreSQL Botpress database.
 As this app only reads data, you may want to connect to the production CiCi bot database.
 1. Download the CA certificate from the [DigitalOcean Database Dashboard](https://cloud.digitalocean.com/databases/cici-bot/pools)
-2. Convert this to a one liner (replace line breaks with `\n`) and add as the `DB_CA_CERT` value in your `.env.local` file
+2. Convert this to a one-liner (replace line breaks with `\n`) and add as the `DB_CA_CERT` value in your `.env.local` file
 3. Copy the PostgreSQL connection string from that same dashboard, and paste as the `DB_CONNECTION_STRING` value in your `.env.local` file
 
 ## Deployment
@@ -101,3 +101,4 @@ const {userId, userText} = currentMessage;
 // Avoid
 const userId = currentMessage.userId;
 const userText = currentMessage.userText;
+```
