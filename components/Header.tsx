@@ -1,5 +1,7 @@
 import Image from "next/image";
 import logo from "../public/cici-logo.png";
+import badge from "../public/v2-badge.svg";
+
 import {Alert, Button, Icon, Menu, MenuDivider, MenuItem, Popover} from "@blueprintjs/core";
 import {ReactNode, useState} from "react";
 import {isMultiTenantUser, isUserAdmin} from "@/lib/auth0";
@@ -53,6 +55,7 @@ export default function Header({children = null, tenant = null}: HeaderProps) {
                             }}/>
                         <span className="text-xl leading-none pl-2 hidden sm:block"
                               style={{color: '#004b4c'}}>Dashboard</span>
+                        <Image src={badge} alt="v2" width={24} className="ml-2"/>
                     </a>
 
                     {user &&
