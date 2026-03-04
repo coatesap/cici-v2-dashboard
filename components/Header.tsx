@@ -45,7 +45,6 @@ export default function Header({children = null, tenant = null}: HeaderProps) {
                         <Image
                             src={logo}
                             alt="CiCi"
-                            height={33.5}
                             width={66}
                             quality={100}
                             style={{

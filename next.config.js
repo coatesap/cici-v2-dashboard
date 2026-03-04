@@ -9,4 +9,8 @@ module.exports = {
         // Important: return the modified config
         return config
     },
+
+    images: {
+        qualities: [80, 100],
+    }
 }
