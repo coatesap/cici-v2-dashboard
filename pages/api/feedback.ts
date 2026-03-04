@@ -6,6 +6,7 @@ type Vote = 'up' | 'down';
 
 interface MessageVote {
     vote: Vote;
+    messageId: number;
     reason: string;
     details: string;
 }
@@ -19,7 +20,7 @@ export interface FeedbackResponse {
 
 const getFeedback = (start, end, tenantId: number | null = null) => {
     let sql = `
-        SELECT mv."vote", mv."reason", mv."details"
+        SELECT mv."vote", mv."messageId", mv."reason", mv."details"
         FROM "messageVote" AS mv
         WHERE mv."createdAt" >= $1
           AND mv."createdAt" < $2
@@ -54,7 +55,7 @@ export default withTenantCheck(async (req, res) => {
 
     const {month: rawMonth, format = 'json', tenantId: rawTenantId = '', start: startOn, end: endOn} = req.query
 
-    const month = String(rawMonth)
+    const month = rawMonth ? String(rawMonth) : ''
     const tenantId = rawTenantId ? Number(rawTenantId) : null
 
     let start, end;
@@ -86,8 +87,9 @@ export default withTenantCheck(async (req, res) => {
             upCount: parseInt(upCount),
             downCount: parseInt(downCount),
             numberOfRatings: parseInt(count),
-            responses: messages.map(({vote, reason, details}) => ({
+            responses: messages.map(({vote, messageId, reason, details}) => ({
                 vote,
+                messageId,
                 reason: reason?.trim() ?? null,
                 details: details?.trim() ?? null,
             }))

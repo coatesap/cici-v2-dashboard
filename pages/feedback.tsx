@@ -8,6 +8,7 @@ import {DateRangePicker} from "@blueprintjs/datetime";
 import {DateTime} from "luxon";
 import {friendlyDateRange} from "@/lib/dateUtils";
 import {makeApiRequestForDateRange} from "@/lib/apiUtils";
+import Link from "next/link";
 import {withAdminUser} from "@/lib/auth";
 import Custom500 from "./500";
 import {FeedbackResponse} from "./api/feedback";
@@ -165,16 +166,34 @@ const Feedback = () => {
                             </Card>
 
 
-                            <table className="mt-4 w-full">
+                            <h3 className="mt-6 mb-2 text-lg font-semibold">Message Feedback</h3>
+                            <table className="w-full">
                                 <thead>
                                 <tr className="border-b border-gray-300 bg-gray-300">
-                                    <th className="px-4 py-1 text-left w-5">Rating</th>
-                                    <th className="px-4 py-1 text-left">Message</th>
+                                    <th className="px-4 py-1 text-left">Message ID</th>
+                                    <th className="px-4 py-1 text-left">Vote</th>
+                                    <th className="px-4 py-1 text-left">Reason</th>
+                                    <th className="px-4 py-1 text-left">Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {feedback.responses.map(({reason, details}, i) => (
+                                {feedback.responses
+                                    .map(({messageId, vote, reason, details}, i) => (
                                     <tr key={i} className="border-b border-gray-300 hover:bg-gray-50">
+                                        <td className="px-4 py-1">
+                                            <Link href={`/messages/${messageId}`} className="text-blue-600 hover:underline">
+                                                {messageId}
+                                            </Link>
+                                        </td>
+                                        <td className="px-4 py-1">
+                                            <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${
+                                                vote === 'up'
+                                                    ? 'bg-green-100 text-green-800'
+                                                    : 'bg-red-100 text-red-800'
+                                            }`}>
+                                                {vote === 'up' ? 'Up' : 'Down'}
+                                            </span>
+                                        </td>
                                         <td className="px-4 py-1">{reason}</td>
                                         <td className="px-4 py-1">{details}</td>
                                     </tr>
